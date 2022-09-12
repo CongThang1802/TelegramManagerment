@@ -1,0 +1,40 @@
+import { Context } from '../../../Common/context';
+import { Repository } from '../../Base/Repositories/Repository';
+import { GetOneArgs } from '../../Dtos/Args.dto';
+import { FetchArgs } from '../../Dtos/Fetch/FetchArgs.dto';
+import { DeleteOneArgs } from './../../Dtos/Args.dto';
+import { Create{{Case name}}Args, Update{{Case name}}Args } from './{{name}}.dto';
+import { {{Case name}}, {{Case name}}Model } from './{{name}}.model';
+import {{name}}Repository from './{{name}}.repository';
+
+
+
+class {{Case name}}Service {
+    private repository: Repository<{{Case name}}>;
+    constructor() {
+        this.repository = {{name}}Repository;
+    }
+    async fetch(args: FetchArgs, ctx: Context) {
+        return await this.repository.fetch(args);
+    }
+    async getOne(args: GetOneArgs, ctx: Context) {
+        const { _id } = args;
+        return await this.repository.findOne(_id);
+    }
+    async create(args: Create{{Case name}}Args, ctx: Context) {
+        const { data } = args;
+        const {{name}} = new {{Case name}}(data);
+        return await this.repository.create({{name}});
+    }
+    async update(args: Update{{Case name}}Args, ctx: Context) {
+        const { _id, data } = args;
+        return await this.repository.updateOne(_id, data);
+    }
+
+    async delete(args: DeleteOneArgs, ctx: Context) {
+        const { _id } = args;
+        return await this.repository.deleteOne(_id);
+    }
+}
+
+export default new {{Case name}}Service();

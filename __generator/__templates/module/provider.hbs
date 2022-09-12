@@ -1,0 +1,14 @@
+import { DATA_SOURCE } from 'src/commonModules/database/datasource';
+import { DataSource } from 'typeorm';
+import { {{Case name}} } from './{{sname}}.entity';
+import { {{Case name}}Repository, {{Case name}}_REPOSITORY } from './{{Case name}}.repo';
+
+export const {{Case name}}Providers = [
+    {
+        provide: {{UPPERCase name}}_REPOSITORY,
+        useFactory: (datasource: DataSource) => {
+            return new {{Case name}}Repository(datasource.getRepository({{Case name}}));
+        },
+        inject: [DATA_SOURCE],
+    },
+];

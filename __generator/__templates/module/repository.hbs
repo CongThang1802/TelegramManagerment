@@ -1,0 +1,11 @@
+import { CRUDRepository } from 'src/abstractions/crudRepository.abstraction';
+import { Repository } from 'typeorm';
+import { {{Case name}} } from './{{name}}.entity';
+
+export class {{Case name}}Repository extends CRUDRepository<{{Case name}}> {
+    constructor(base{{Case name}}Repository: Repository<{{Case name}}>) {
+        super(base{{Case name}}Repository);
+    }
+}
+
+export const {{UPPERCase name}}_REPOSITORY = '{{UPPERCase name}}_REPOSITORY';

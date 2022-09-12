@@ -1,0 +1,44 @@
+import {
+    Body,
+    Controller,
+    Delete,
+    Get,
+    Param,
+    Patch,
+    Post,
+} from '@nestjs/common';
+import { Create{{Case name}}Dto } from './dto/create-{{name}}.dto';
+import { Update{{Case name}}Dto } from './dto/update-{{name}}.dto';
+import { {{Case name}}Service } from './{{name}}.service';
+
+@Controller('{{name}}')
+export class {{Case name}}Controller {
+    constructor(private readonly {{name}}Service: {{Case name}}Service) {}
+
+    @Post()
+    create(@Body() create{{Case name}}Data: any) {
+        console.log('INSERTING...');
+        const create{{Case name}}Dto = new Create{{Case name}}Dto(create{{Case name}}Data);
+        return this.{{name}}Service.create(create{{Case name}}Dto);
+    }
+
+    @Get()
+    findAll() {
+        return this.{{name}}Service.findAll();
+    }
+
+    @Get(':id')
+    findOne(@Param('id') id: string) {
+        return this.{{name}}Service.findOne(+id);
+    }
+
+    @Patch(':id')
+    update(@Param('id') id: string, @Body() update{{Case name}}Dto: Update{{Case name}}Dto) {
+        return this.{{name}}Service.update(id, update{{Case name}}Dto);
+    }
+
+    @Delete(':id')
+    delete(@Param('id') id: string) {
+        return this.{{name}}Service.remove(+id);
+    }
+}

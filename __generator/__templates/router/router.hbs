@@ -1,0 +1,13 @@
+import { Request, Response } from 'express';
+import { IRouter, Method } from '..';
+
+class {{Case name}} implements IRouter{
+    method = Method.GET;
+    path = '/{{feature}}/{{name}}';
+    middleware = [];
+    async handler(req:Request,res:Response){
+        return res.status(200).json({})
+    }
+}
+
+export default new {{Case name}}();
