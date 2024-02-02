@@ -21,6 +21,5 @@ jobs:
       - name: Create and Checkout Branch B
         run: |
           git checkout -b B
-#          git pull origin B --no-ff --allow-unrelated-histories
           git merge --no-edit main
           git push origin B
