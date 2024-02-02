@@ -18,7 +18,10 @@ jobs:
           git checkout -b B
 
       - name: Pull Branch B
-        run: git pull origin B
+        run: |
+          git config pull.rebase false
+          git config pull.ff only
+          git pull origin B
 
       - name: Merge into Branch B
         run: git merge main
