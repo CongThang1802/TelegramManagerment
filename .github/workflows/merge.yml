@@ -1,9 +1,10 @@
 name: Automatic Merge
 
 on:
-  push:
-    branches:
-      - main
+#  push:
+#    branches:
+#      - main
+ workflow_dispatch:
 
 env:
   # replace "github_username" with your GitHub username
