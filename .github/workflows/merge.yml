@@ -1,0 +1,24 @@
+name: Automatic Merge
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Merge into Branch B
+        run: |
+          git checkout B
+          git merge main
+
+
+      - name: Push Changes
+        run: |
+          git push origin B

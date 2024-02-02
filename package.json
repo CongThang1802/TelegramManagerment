@@ -23,7 +23,8 @@
         "migration:run": "npm run build && npm run typeorm migration:run -o -- -d ./dist/src/commonModules/database/datasource.js",
         "migration:generate": "npm run build && npm run typeorm -o -- -d ./dist/src/commonModules/database/datasource.js migration:generate ./database-migrations/$npm_config_name",
         "migration:create": "npm run typeorm -- migration:create ./database-migrations/$npm_config_name",
-        "migration:revert": "npm run build && npm run typeorm -o -- -d ./dist/src/commonModules/database/datasource.js migration:revert"
+        "migration:revert": "npm run build && npm run typeorm -o -- -d ./dist/src/commonModules/database/datasource.js migration:revert",
+        "plop": "plop"
     },
     "dependencies": {
         "@nestjs/common": "^9.0.0",
