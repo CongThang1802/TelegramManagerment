@@ -38,6 +38,6 @@ $ docker-compose up -d
 ```
 
 ```sh
-$ just test 3
+$ just test 4
 
 ```
