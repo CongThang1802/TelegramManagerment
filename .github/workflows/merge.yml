@@ -18,7 +18,7 @@ jobs:
           git checkout -b B
 
       - name: Merge into Branch B
-        run: git merge A
+        run: git merge main
 
       - name: Push Changes to Branch B
         run: git push origin B
