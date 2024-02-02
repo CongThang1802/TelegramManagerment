@@ -13,20 +13,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Configure Git
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+
       - name: Create and Checkout Branch B
         run: |
           git checkout -b B
 
-      - name: Pull Branch B
-        run: |
-          git config pull.rebase false
-          git config pull.ff only
-          git merge --no-ff
-          git pull
-
       - name: Merge into Branch B
-        run: git merge main
+        run: git merge --no-edit main
 
       - name: Push Changes to Branch B
         run: git push origin B
-
