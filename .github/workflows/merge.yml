@@ -13,12 +13,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Create and Checkout Branch B
+        run: |
+          git checkout -b B
+
       - name: Merge into Branch B
-        run: |
-          git checkout B
-          git merge main
+        run: git merge A
 
+      - name: Push Changes to Branch B
+        run: git push origin B
 
-      - name: Push Changes
-        run: |
-          git push origin B
