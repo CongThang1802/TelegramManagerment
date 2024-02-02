@@ -22,5 +22,8 @@ jobs:
         run: |
           git fetch --all
           git checkout B
+
+      - name: Push To Branch B
+        run: |
           git merge --no-edit main
           git push origin B
