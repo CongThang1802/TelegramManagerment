@@ -26,4 +26,6 @@ jobs:
         run: git merge --no-edit main
 
       - name: Push Changes to Branch B
-        run: git push origin B
+        run: |
+          git pull origin B
+          git push origin B
