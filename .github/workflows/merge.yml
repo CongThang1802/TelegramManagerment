@@ -22,7 +22,7 @@ jobs:
           git config pull.rebase false
           git config pull.ff only
           git merge --no-ff
-          git pull origin B
+          git pull
 
       - name: Merge into Branch B
         run: git merge main
