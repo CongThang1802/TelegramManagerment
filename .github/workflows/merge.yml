@@ -15,7 +15,7 @@ env:
   MY_BRANCH: B
 
   # replace it with the path to master repo
-  MASTER_REPO: https://github.com/username/master_repo.git
+  MASTER_REPO: https://github.com/CongThang1802/TelegramManagerment.git
 
   # replace "master" with your master branch name
   MASTER_BRANCH: main
