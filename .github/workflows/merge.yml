@@ -5,25 +5,32 @@ on:
     branches:
       - main
 
+env:
+  # replace "github_username" with your GitHub username
+  # replace "github.com/username/repo.git" with your GitHub repo path
+  # do NOT replace ${{secrets.GITHUB_TOKEN}}, GitHub will take care of it
+  MY_REPO: https://CongThang1802:${{secrets.GITHUB_TOKEN}}@github.com/CongThang1802/TelegramManagerment.git
+
+  # replace "long-lived_branch_name" with your branch name
+  MY_BRANCH: B
+
+  # replace it with the path to master repo
+  MASTER_REPO: https://github.com/username/master_repo.git
+
+  # replace "master" with your master branch name
+  MASTER_BRANCH: main
+
 jobs:
   merge:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
-
-      - name: Configure Git
-        run: |
-          git config user.email "actions@github.com"
-          git config user.name "GitHub Actions"
-
-      - name: Create and Checkout Branch B
-        run: |
-          git fetch --all
-          git checkout B
-
-      - name: Push To Branch B
-        run: |
-          git merge main --allow-unrelated-histories
-          git push origin B
+    - name: Merge with master
+      run: |
+        git clone ${{env.MY_REPO}} -b ${{env.MY_BRANCH}} tmp
+        cd tmp
+        git config user.name "Automerge Bot"
+        git config user.email "bot@example.com"
+        git config pull.rebase false
+        git pull ${{env.MASTER_REPO}} ${{env.MASTER_BRANCH}}
+        git push
