@@ -17,6 +17,9 @@ jobs:
         run: |
           git checkout -b B
 
+      - name: Pull Branch B
+        run: git pull origin B
+
       - name: Merge into Branch B
         run: git merge main
 
