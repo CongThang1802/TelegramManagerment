@@ -25,5 +25,5 @@ jobs:
 
       - name: Push To Branch B
         run: |
-          git merge --no-edit main
+          git merge main --allow-unrelated-histories
           git push origin B
