@@ -21,11 +21,6 @@ jobs:
       - name: Create and Checkout Branch B
         run: |
           git checkout -b B
-
-      - name: Merge into Branch B
-        run: |
+#          git pull origin B --no-ff --allow-unrelated-histories
           git merge --no-edit main
-                                  
-      - name: Push Changes to Branch B
-        run: |
           git push origin B
