@@ -24,7 +24,7 @@ jobs:
 
       - name: Merge into Branch B
         run: |
-          git pull origin B --no-ff --allow-unrelated-histories
+#          git pull origin B --no-ff --allow-unrelated-histories
           git merge --no-edit main
 
       - name: Push Changes to Branch B
