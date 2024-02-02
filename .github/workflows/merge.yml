@@ -27,5 +27,5 @@ jobs:
 
       - name: Push Changes to Branch B
         run: |
-          git pull origin B
+          git pull --ff-only origin B
           git push origin B
